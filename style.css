@@ -1,0 +1,879 @@
+/* General Styling & Variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --text-color: #f0f0f0; /* Light gray for most text */
+    --background-color: #090000; /* Dark background */
+    --accent-color: #16745d; /* Green for titles/highlights */
+    --dark-green: #16745d; /* Darker green for input backgrounds */
+    --card-background: #2a2a2a; /* Slightly lighter dark for cards */
+    --border-color: #333; /* Darker border for nav items/inputs */
+    --input-placeholder-color: #888; /* Placeholder text color */
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    line-height: 1.6;
+}
+
+/* Reusable Section Title Styling */
+.section-title {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-transform: lowercase; /* As seen in skills */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 5px rgb(0, 5, 5);
+    position: sticky; /* Makes navbar stick to top */
+    top: 0;
+    z-index: 1000; /* Ensures navbar is always on top */
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: lowercase;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: var(--nav-item-bg); /* Need to define --nav-item-bg or use a consistent color */
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+/* Re-defining --nav-item-bg for hover consistency as it wasn't defined in :root */
+.navbar .nav-links li a:hover {
+    background-color: #2b2b2b; /* A slightly lighter dark for hover */
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Hero Section (Slide1.jpg) */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust height based on navbar height */
+    padding: 0 5%;
+    gap: 40px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.hero-text-content {
+    flex: 1;
+    max-width: 600px;
+    padding-bottom: 50px; /* Adjust to move text up a bit */
+}
+
+.hero-text-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero-text-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.hero-image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px; /* Limit image width */
+}
+
+.hero-image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* About Section (Slide3.jpg) */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start of the cross-axis */
+    min-height: 100vh;
+    padding: 50px 5%;
+    gap: 60px;
+    background-color: var(--background-color);
+    color: var(--text-color)rgb(1, 1, 11);
+}
+
+.about-image-content {
+    flex: 0 0 350px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.about-image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-text-content {
+    flex: 1;
+    max-width: 700px;
+    padding-top: 20px;
+    
+}
+
+.about-text-content .section-title {
+    /* Styles are inherited from .section-title, no specific overrides needed unless desired */
+    margin-bottom: 30px; /* Ensures consistent spacing */
+}
+
+.intro-paragraph,
+.passion-paragraph {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-color); /* Kept consistent with hero section text color */
+}
+
+.strengths-heading {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.strengths-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.strengths-list li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.strengths-list li i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Skills Section (Slide2.PNG) */
+.skills-section {
+    padding: 80px 5%; /* Increased padding for more space */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.skills-title-box {
+    margin: 0 auto 50px auto; /* Center the title box and add more bottom margin */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 40px; /* Space between skill categories */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category i {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 3.5em; /* Adjusted icon size */
+}
+
+.skill-category h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Align list items to the left */
+    display: inline-block; /* Helps center the ul block itself */
+}
+
+.skill-category ul li {
+    font-size: 1.05em;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+/* Projects Section (Screenshot 2025-07-12 111149.png) */
+.projects-section {
+    padding: 80px 5%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.projects-title {
+    margin: 0 auto 50px auto; /* Center title */
+    background-color: var(--accent-color); /* Match style from image */
+    color: var(--background-color);
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex; /* Use flex for vertical alignment */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    min-height: 250px; /* Ensure cards have similar height */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-icon-box {
+    width: 80px; /* Fixed size for the icon box */
+    height: 80px;
+    background-color: var(--background-color); /* Darker background for the icon box */
+    border-radius: 15px; /* Rounded corners for the icon box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+}
+
+.project-icon-box img {
+    max-width: 70%; /* Ensure icon fits */
+    max-height: 70%;
+    object-fit: contain;
+}
+
+.project-card h4 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: var(--text-color);
+    flex-grow: 1; /* Allow paragraph to take up available space */
+}
+
+/* Contact Me Section (Slide4.PNG) */
+.contact-section {
+    padding: 80px 5%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align form and info to top */
+    gap: 80px; /* Space between info and form */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 400px;
+}
+
+.contact-info h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.contact-form-container {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align button to the right */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-input,
+.form-textarea {
+    background-color: var(--dark-green); /* Dark green background */
+    color: var(--text-color);
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    outline: none; /* Remove outline on focus */
+    box-shadow: inset 0 0 1px rgba(5, 8, 8, 0.918); /* Inner shadow */
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--input-placeholder-color); /* Light gray placeholder text */
+}
+
+.form-textarea {
+    min-height: 150px; /* Taller for messages */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.send-message-button {
+    background-color: var(--accent-color);
+    color: var(--background-color); /* Black text on green button */
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-end; /* Align button to the right */
+}
+
+.send-message-button:hover {
+    background-color: hsl(166, 71%, 25%); /* Slightly darker green on hover */
+    transform: translateY(-2px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .navbar .nav-links li a {
+        width: calc(100% - 30px);
+        text-align: center;
+    }
+
+    .hero-section,
+    .about-section,
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 50px;
+        gap: 40px;
+    }
+
+    .hero-text-content,
+    .about-text-content,
+    .contact-info,
+    .contact-form-container {
+        max-width: 100%;
+        padding: 0 3%;
+        text-align: center;
+    }
+
+    .hero-image-content,
+    .about-image-content {
+        max-width: 80%;
+        height: auto; /* Allow height to adjust for responsiveness */
+        margin-top: 30px;
+    }
+
+    .about-text-content .section-title,
+    .skills-title-box,
+    .projects-title {
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block; /* Ensure it stays centered */
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+        max-width: 400px; /* Limit width of stacked cards */
+    }
+
+    .skill-category ul {
+        text-align: center; /* Center skill lists */
+        padding-left: 0;
+    }
+
+    .strengths-list li {
+        justify-content: center; /* Center checkmark list items */
+    }
+
+    .contact-form-container {
+        align-items: center; /* Center form */
+    }
+    .send-message-button {
+        align-self: center; /* Center button */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.5em;
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-text-content p,
+    .intro-paragraph,
+    .passion-paragraph,
+    .strengths-list li,
+    .skill-category h3,
+    .skill-category ul li,
+    .project-card h4,
+    .project-card p,
+    .contact-info p,
+    .form-input,
+    .form-textarea {
+        font-size: 1em;
+    }
+
+    .section-title, .projects-title {
+        font-size: 1.5em;
+        padding: 6px 20px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.8em;
+    }
+}
+.whatsapp-link {
+    color: var(--text-color); /* Midabka text-ka caadiga ah */
+    text-decoration: none; /* Ka saar xariiqda hoose */
+    transition: color 0.3s ease; /* Ku dar transition si uu ugu ekaado mid jilicsan */
+}
+
+.whatsapp-link:hover {
+    color: var(--accent-color); /* Bedel midabka marka mouse-ka la dul dhigo */
+}
+/* Styling for the Email link */
+.email-link {
+    color: var(--text-color); /* Midabka text-ka caadiga ah */
+    text-decoration: none; /* Ka saar xariiqda hoose */
+    transition: color 0.3s ease; /* Ku dar transition si uu ugu ekaado mid jilicsan */
+}
+
+.email-link:hover {
+    color: var(--accent-color); /* Bedel midabka marka mouse-ka la dul dhigo */
+}
+/* Styling for the Phone link */
+.phone-link {
+    color: var(--text-color); /* Midabka text-ka caadiga ah */
+    text-decoration: none; /* Ka saar xariiqda hoose */
+    transition: color 0.3s ease; /* Ku dar transition si uu ugu ekaado mid jilicsan */
+}
+
+.phone-link:hover {
+    color: var(--accent-color); /* Bedel midabka marka mouse-ka la dul dhigo */
+}
+/* Blog Section Styles */
+.blog-section {
+    padding: 80px 5%;
+    background-color: var(--background-color);
+    color: var(--text-color)darkorchid;
+    text-align: center;
+}
+
+.blog-title {
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    color: var(--accent-color)rgb(15, 3, 3);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.blog-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-post-card {
+    background-color: var(--card-background-color);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+.blog-post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post-card h3 {
+    font-size: 1.5em;
+    margin: 20px 20px 10px;
+    color: var(--primary-color);
+}
+
+.blog-date {
+    font-size: 0.9em;
+    color: #080101;
+    margin: 0 20px 15px;
+}
+
+.blog-excerpt {
+    font-size: 1em;
+    color: #fbfefe;
+    line-height: 1.6;
+    margin: 0 20px 20px;
+    flex-grow: 1; /* Hubi in content-ku uu buuxiyo booska */
+}
+
+.read-more-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--card-background-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start; /* Muhiim u ah in badhanku xagga bidixda ka bilaabdo */
+}
+
+.read-more-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for Blog Section */
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 60px 5%;
+    }
+
+    .blog-title {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .blog-posts-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post-card h3 {
+        font-size: 1.3em;
+    }
+
+    .blog-post-image {
+        height: 180px;
+    }
+}
+/* Styling for the Logo Link */
+.logo a {
+    color: var(--text-color); /* Midabka text-ka caadiga ah, sida navigation links-ka kale */
+    text-decoration: none; /* Ka saar xariiqda hoose */
+    font-weight: 700; /* Ka dhig mid adag sida uu horey ahaa */
+    font-size: 0.8em; /* Ku sii cabbirka font-kaaga logo-ga */
+    transition: color 0.3s ease; /* Ku dar transition marka la dul maro */
+}
+
+.logo a:hover {
+    color: var(--primary-color); /* Bedel midabka marka mouse-ka la dul dhigo */
+}
+/* Styling for the hero image in Home section */
+.hero-image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Hubi inaad heysato border-radius haddii aad doonayso geeso wareegsan */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+    /* NEW: Blur/Fade effect */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); /* WebKit browsers */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%); /* Standard syntax */
+    /* Waxaad sidoo kale ku dari kartaa ifaadoyin dhinacyada, tusaale: */
+    /* -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%), linear-gradient(to right, black 95%, transparent 100%); */
+    /* mask-image: linear-gradient(to bottom, black 80%, transparent 100%), linear-gradient(to right, black 95%, transparent 100%); */
+}
+
+/* Styling for the image in About Me section */
+.about-image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Hubi inaad heysato border-radius */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+    /* NEW: Blur/Fade effect */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); /* WebKit browsers */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%); /* Standard syntax */
+    /* Waxaad sidoo kale ku dari kartaa ifaadoyin dhinacyada, tusaale: */
+    /* -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%), linear-gradient(to left, black 95%, transparent 100%); */
+    /* mask-image: linear-gradient(to bottom, black 80%, transparent 100%), linear-gradient(to left, black 95%, transparent 100%); */
+}
+.social-links {
+    margin-top: 20px;
+    font-size: 2em; /* Size-ka icons-ka */
+}
+.social-links a {
+    color: var(--text-color);
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Call to Action Buttons Styling - Halkan waxaa ku jira container-ka labada badhan */
+.cta-buttons {
+    margin-top: 50px; /* Wax yar oo boos ah ka sii sarreeya si ay uga muuqdaan icons-ka social media */
+    display: flex;
+    justify-content: center; /* Xarunta u dhig badhamada */
+    gap: 30px; /* Boos u dhexeeya labada badhan, wax yar weynaynay */
+    flex-wrap: wrap; /* Si ay u saf galaan hal hoos mar haddii ay shaashadu yaraato */
+}
+
+/* Base Button Style - Styles-kan guud wuxuu khuseeyaa labada badhan */
+.btn {
+    display: inline-block;
+    padding: 16px 35px; /* Wax yar weynaynay padding-ka */
+    border-radius: 10px; /* Wax yar ka sii wareegsan geesaha */
+    text-decoration: none;
+    font-weight: 700; /* Ka dhig font-ka wax yar ka buuran */
+    font-size: 1.15em; /* Wax yar weynaynay font-ka */
+    cursor: pointer;
+    transition: all 0.4s ease-in-out; /* Animation smooth ah dhinacyada oo dhan */
+    border: none;
+    text-transform: uppercase; /* Badhamada text-kooda ka dhig xuruufo waaweyn */
+    letter-spacing: 0.8px; /* Boos u dhexeeya xuruufaha */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Hoos ka dhig mid cad */
+}
+
+/* Primary Button Style (Contact Me) */
+.primary-btn {
+    background-color: var(--accent-color); /* Midabkaaga accent-ka ee aasaasiga ah (cagaar khafiif ah) */
+    color: var(--background-color); /* Midabka text-ka, ka dhig mid ka soo horjeeda background-ka */
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4); /* Hooska asaasiga ah */
+}
+
+.primary-btn:hover {
+    background-color: #5cb85c; /* Midab wax yar ka madow marka la dul maro */
+    transform: translateY(-7px); /* Inyar kor u kaca si ka badan sidii hore */
+    box-shadow: 0 12px 25px rgba(76, 175, 80, 0.7); /* Hooska oo sii weynaada */
+}
+
+/* Secondary Button Style (Download CV) */
+.secondary-btn {
+    background-color: transparent; /* Background aan lahayn */
+    color: var(--primary-color); /* Midabka text-ka, wuxuu la mid yahay midabka border-ka */
+    border: 3px solid var(--primary-color); /* Border-ka oo wax yar ka buuran */
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.2); /* Hooska asaasiga ah */
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color); /* Buuxi background-ka marka la dul maro */
+    color: var(--background-color); /* Beddel midabka text-ka */
+    transform: translateY(-7px); /* Inyar kor u kaca */
+    box-shadow: 0 12px 25px rgba(0, 188, 212, 0.5); /* Hooska oo sii weynaada */
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 600px) {
+    .cta-buttons {
+        flex-direction: column; /* Badhamada ku dheji hoos haddii shaashadu yaraato */
+        gap: 20px; /* Boos u dhexeeya oo la yarayn */
+    }
+    .btn {
+        width: 85%; /* Balaaciisa ka dhig mid ballaaran */
+        margin: 0 auto; /* Xarunta u dhig */
+        padding: 14px 25px; /* Yarayn padding-ka */
+        font-size: 1.05em; /* Yarayn font-ka */
+    }
+}
+/* Styling for Social Media Icons in Hero Section */
+.social-icons-hero {
+    margin-top: 45px; /* Boos ka sarreeya qoraalkaaga */
+    margin-bottom: 40px; /* Boos ka hooseeya, ka hor badhamada CTA */
+    display: flex;
+    justify-content: center; /* Xarunta u dhig icons-ka */
+    align-items: center;
+    gap: 25px; /* Boos u dhexeeya icons-ka oo wax yar la kordhiyey */
+    flex-wrap: wrap; /* Si ay ugu habboonaadaan saf cusub shaashadaha yaryar */
+}
+
+.social-icons-hero a {
+    color: var(--text-color); /* Midabka icons-ka, wuxuu la mid noqonayaa midabka text-kaaga */
+    font-size: 2.2em; /* Baaxadda icons-ka oo wax yar la weyneeyey, si ay u muuqdaan kuwo soo jiidasho leh */
+    transition: all 0.4s ease-in-out; /* Animation smooth ah dhinacyada oo dhan */
+    position: relative; /* Muhiim u ah animation-ka hoos yimaada */
+    overflow: hidden; /* Si aanay wax u dhaafin */
+    padding: 5px; /* Wax yar padding ah icon-ka */
+    border-radius: 50%; /* Ka dhig wareegyo */
+}
+
+/* Saameynta hoose marka la dul maro (Fade in bottom border/line) */
+.social-icons-hero a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Dhumucda xarriiqda */
+    background-color: var(--primary-color); /* Midabka xarriiqda */
+    transform: translateX(-100%); /* Bilaw meel ka baxsan shaashadda */
+    transition: transform 0.4s ease-in-out; /* Animation-ka soo gelitaanka */
+}
+
+.social-icons-hero a:hover::after {
+    transform: translateX(0); /* Gal oo soo muuqo */
+}
+
+.social-icons-hero a:hover {
+    color: var(--primary-color); /* Midabka icon-ka marka mouse-ka la dul dhigo */
+    transform: translateY(-8px); /* Inyar kor u kaca si ka badan sidii hore */
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3); /* Hoos khafiif ah oo casri ah */
+}
+
+/* Responsive adjustments for icons in Hero section */
+@media (max-width: 768px) {
+    .social-icons-hero {
+        margin-top: 35px;
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+    .social-icons-hero a {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons-hero {
+        gap: 15px;
+    }
+    .social-icons-hero a {
+        font-size: 1.8em;
+    }
+}
